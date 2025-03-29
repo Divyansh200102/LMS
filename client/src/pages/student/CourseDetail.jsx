@@ -45,7 +45,7 @@ const CourseDetail = () => {
           <h1 className="font-bold text-2xl md:text-3xl">
             {course?.courseTitle || 'Untitled Course'}
           </h1>
-          <p className="text-base md:text-lg">Course Sub-title</p>
+          <p className="text-base md:text-lg">{course?.subTitle || 'Course Sub-title'}</p>
           <p>
             Created By{" "}
             <span className="text-[#C0C4FC] underline italic">
@@ -98,7 +98,15 @@ const CourseDetail = () => {
         <div className="w-full lg:w-1/3">
           <Card>
             <CardContent className="p-4 flex flex-col">
-              {course?.lectures?.[0]?.videoUrl ? (
+              {course?.courseThumbnail ? (
+                <div className="w-full aspect-video mb-4 overflow-hidden rounded-md">
+                  <img 
+                    src={course.courseThumbnail} 
+                    alt={`${course.courseTitle} thumbnail`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : course?.lectures?.[0]?.videoUrl ? (
                 <div className="w-full aspect-video mb-4">
                   <ReactPlayer
                     width="100%"
@@ -112,9 +120,11 @@ const CourseDetail = () => {
                   No preview available
                 </div>
               )}
-              <h1>Lecture title</h1>
+              <h1>{course?.lectures?.[0]?.lectureTitle || 'Course Preview'}</h1>
               <Separator className="my-2" />
-              <h1 className="text-lg md:text-xl font-semibold">Course Price</h1>
+              <h1 className="text-lg md:text-xl font-semibold">
+                {course?.coursePrice ? `$${course.coursePrice.toFixed(2)}` : 'Free'}
+              </h1>
             </CardContent>
             <CardFooter className="flex justify-center p-4">
               {purchased ? (

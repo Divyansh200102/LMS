@@ -13,17 +13,18 @@ import { Separator } from "@/components/ui/separator";
 import React, { useState } from "react";
 
 const categories = [
-  { id: "nextjs", label: "Next JS" },
-  { id: "data science", label: "Data Science" },
-  { id: "frontend development", label: "Frontend Development" },
-  { id: "fullstack development", label: "Fullstack Development" },
-  { id: "mern stack development", label: "MERN Stack Development" },
-  { id: "backend development", label: "Backend Development" },
-  { id: "javascript", label: "Javascript" },
+  { id: "security", label: "Security" },
+  { id: "development", label: "Development" },
+  { id: "data-science", label: "Data Science" },
+  { id: "ai-machine-learning", label: "AI & Machine Learning" },
+  { id: "marketing", label: "Marketing" },
+  { id: "networking", label: "Networking" },
+  { id: "web-development", label: "Web Development" },
   { id: "python", label: "Python" },
-  { id: "docker", label: "Docker" },
-  { id: "mongodb", label: "MongoDB" },
-  { id: "html", label: "HTML" },
+  { id: "cloud-computing", label: "Cloud Computing" },
+  { id: "business", label: "Business" },
+  { id: "project-management", label: "Project Management" },
+  { id: "mobile-development", label: "Mobile Development" }
 ];
 
 const Filter = ({ handleFilterChange }) => {
